@@ -29,3 +29,9 @@ v.05 - Variables estáticas
 v.06 - Aparece una nueva clase: Player
 - Creación de nueva clase para el Player
 
+v.07 - Herencia, subclases, superclases y "super()"
+- Explicación del concepto de herencia, subclases y superclases
+- Relación de herencia con una nueva clase: Actor
+- Explicación del significado de super
+
+

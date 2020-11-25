@@ -3,10 +3,8 @@ package org.rmrsoft.spaceInvaders;
 /**
  * Esta clase representa las propiedades y acciones de un monstruo del videojuego SpaceInvaders
  */
-public class Monster {
+public class Monster extends Actor {
 	// Propiedades privadas de cada monstruo
-	private int x, y; // Coordenadas x e y del monstruo
-	private String img; // Imagen del monstruo
 	private String nombre; // Nombre que recibe el monstruo
 	private int probabilidadDisparo; // Probabilidad de que ser realice un disparo
 	
@@ -19,22 +17,19 @@ public class Monster {
 	 * Constructor sin argumentos de entrada
 	 */
 	public Monster() {
-		// texto de prueba para comprobar que, al construir un objeto, se ejecuta la siguiente línea
-		System.out.println("Han construido un monstruo");
+		super();
 	}
-	
+
 	/**
 	 * Constructor más completo, con todas las propiedades del objeto
-	 * @param newX
-	 * @param newY
-	 * @param newImg
-	 * @param newNombre
-	 * @param newProb
+	 * @param x
+	 * @param y
+	 * @param img
+	 * @param nombre
+	 * @param probabilidadDisparo
 	 */
 	public Monster(int x, int y, String img, String nombre, int probabilidadDisparo) {
-		this.x = x;
-		this.y = y;
-		this.img = img;
+		super(x, y, img);
 		this.nombre = nombre;
 		this.probabilidadDisparo = probabilidadDisparo;
 	}
@@ -66,57 +61,18 @@ public class Monster {
 		return false; // Si llego hasta aquí es porque la probabilidad no se ha cumplido
 	}
 	
+
 	/**
 	 * Metodo que devuelve un String con todos los valores de este objeto.
 	 */
 	public String toString() {
-		return "Nombre: " + nombre + " - x: " + x + " - y: " + y + " - img: " + img + " - ProbabilidadDisparo: " + probabilidadDisparo;
+		return "Monster [nombre=" + nombre + ", probabilidadDisparo=" + probabilidadDisparo + ", getX()=" + getX()
+				+ ", getY()=" + getY() + ", getImg()=" + getImg() + "]";
 	}
 
+	
 	// Getters y Setters 
 	
-	/**
-	 * @return the x
-	 */
-	public int getX() {
-		return x;
-	}
-
-	/**
-	 * @param x the x to set
-	 */
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	/**
-	 * @return the y
-	 */
-	public int getY() {
-		return y;
-	}
-
-	/**
-	 * @param y the y to set
-	 */
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	/**
-	 * @return the img
-	 */
-	public String getImg() {
-		return img;
-	}
-
-	/**
-	 * @param img the img to set
-	 */
-	public void setImg(String img) {
-		this.img = img;
-	}
-
 	/**
 	 * @return the nombre
 	 */

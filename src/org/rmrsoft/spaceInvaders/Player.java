@@ -4,11 +4,7 @@ package org.rmrsoft.spaceInvaders;
  * Clase que representa un player en el juego
  *
  */
-public class Player {
-	// Propiedades privadas del player
-	private int x, y; // Coordenadas x e y del monstruo
-	private String img; // Imagen del monstruo
-
+public class Player extends Actor {
 	//Propiedades estáticas de esta clase
 	public static String IMAGEN_PLAYER = "nave.gif";
 
@@ -16,6 +12,7 @@ public class Player {
 	 * Constructor por defecto "default constructor"
 	 */
 	public Player() {
+		super();
 	}
 
 	/**
@@ -25,60 +22,18 @@ public class Player {
 	 * @param img
 	 */
 	public Player(int x, int y, String img) {
-		super();
-		this.x = x;
-		this.y = y;
-		this.img = img;
+		super(x, y, img);
 	}
 
 	/**
 	 * Obtención de un String con todos los datos de un objeto Player
 	 */
 	public String toString() {
-		return "Player [x=" + x + ", y=" + y + ", img=" + img + "]";
+		return "Player [getX()=" + getX() + ", getY()=" + getY() + ", getImg()=" + getImg() + "]";
 	}
+
+	
 
 	// Getters y Setters
 	
-	/**
-	 * @return the x
-	 */
-	public int getX() {
-		return x;
-	}
-
-	/**
-	 * @param x the x to set
-	 */
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	/**
-	 * @return the y
-	 */
-	public int getY() {
-		return y;
-	}
-
-	/**
-	 * @param y the y to set
-	 */
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	/**
-	 * @return the img
-	 */
-	public String getImg() {
-		return img;
-	}
-
-	/**
-	 * @param img the img to set
-	 */
-	public void setImg(String img) {
-		this.img = img;
-	}
 }
