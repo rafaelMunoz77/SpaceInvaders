@@ -26,5 +26,6 @@ v.04 - This, getters y setters
 v.05 - Variables estáticas
 - Ejemplo de variables estáticas para nombres de las imágenes del monstruo.
 
-
+v.06 - Aparece una nueva clase: Player
+- Creación de nueva clase para el Player
 

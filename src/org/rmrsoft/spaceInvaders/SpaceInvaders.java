@@ -22,12 +22,9 @@ public class SpaceInvaders {
 		System.out.println(m1.toString());
 		System.out.println(m2.toString());
 		
-		// Bucle infinito que hace que los monstruos disparen eternamente
-		while (true) {
-			m1.dispara();
-			m2.dispara();
-		}
-		
+		//Construyo un player para este juego
+		Player jugador = new Player(10, 20, Player.IMAGEN_PLAYER);
+		System.out.println(jugador.toString()); // Muestro datos del objeto Player
 	}
 
 }
