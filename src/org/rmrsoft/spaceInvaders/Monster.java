@@ -26,12 +26,12 @@ public class Monster {
 	 * @param newNombre
 	 * @param newProb
 	 */
-	public Monster(int newX, int newY, String newImg, String newNombre, int newProb) {
-		x = newX;
-		y = newY;
-		img = newImg;
-		nombre = newNombre;
-		probabilidadDisparo = newProb;
+	public Monster(int x, int y, String img, String nombre, int probabilidadDisparo) {
+		this.x = x;
+		this.y = y;
+		this.img = img;
+		this.nombre = nombre;
+		this.probabilidadDisparo = probabilidadDisparo;
 	}
 	
 	// Acciones de cada monstruo
@@ -66,6 +66,78 @@ public class Monster {
 	 */
 	public String toString() {
 		return "Nombre: " + nombre + " - x: " + x + " - y: " + y + " - img: " + img + " - ProbabilidadDisparo: " + probabilidadDisparo;
+	}
+
+	// Getters y Setters 
+	
+	/**
+	 * @return the x
+	 */
+	public int getX() {
+		return x;
+	}
+
+	/**
+	 * @param x the x to set
+	 */
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	/**
+	 * @return the y
+	 */
+	public int getY() {
+		return y;
+	}
+
+	/**
+	 * @param y the y to set
+	 */
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	/**
+	 * @return the img
+	 */
+	public String getImg() {
+		return img;
+	}
+
+	/**
+	 * @param img the img to set
+	 */
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * @return the probabilidadDisparo
+	 */
+	public int getProbabilidadDisparo() {
+		return probabilidadDisparo;
+	}
+
+	/**
+	 * @param probabilidadDisparo the probabilidadDisparo to set
+	 */
+	public void setProbabilidadDisparo(int probabilidadDisparo) {
+		this.probabilidadDisparo = probabilidadDisparo;
 	}
 
 }

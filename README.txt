@@ -18,3 +18,7 @@ v.03 - Constructores y visibilidad
 - Creación de diferentes tipos de constructores con argumentos de entrada
 - Creación del método toString()
 - Creación de un método private boolean voyADisparar()
+
+v.04 - This, getters y setters
+- Aplicación de "this" en el constructor de Monster
+- Creación de métodos setters y getters de Monters
