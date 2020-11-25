@@ -10,6 +10,11 @@ public class Monster {
 	private String nombre; // Nombre que recibe el monstruo
 	private int probabilidadDisparo; // Probabilidad de que ser realice un disparo
 	
+	//Propiedades estáticas de esta clase
+	public static String IMAGEN_BICHO_0 = "bicho0.gif";
+	public static String IMAGEN_BICHO_1 = "bicho1.gif";
+	public static String IMAGEN_BICHO_2 = "bicho2.gif";
+	
 	/**
 	 * Constructor sin argumentos de entrada
 	 */
