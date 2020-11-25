@@ -13,3 +13,8 @@ v.02 - Acciones o métodos de los objetos de una clase
 - Creación del método disparar() de la clase Monster
 - Utilización del método disparar() desde la clase SpaceInvaders, creando un bucle infinito y observando como las 
 	instancias de Monster disparan en función a su probabilidad.
+	
+v.03 - Constructores y visibilidad
+- Creación de diferentes tipos de constructores con argumentos de entrada
+- Creación del método toString()
+- Creación de un método private boolean voyADisparar()
