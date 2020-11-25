@@ -16,6 +16,7 @@ public class SpaceInvaders {
 		
 		// Creo un nuevo monstruo
 		Monster m2 = new Monster(100, 120, "monsterImg02.png", "m2", 10);
+		m2.setNombre("Nuevo Monstruo");
 		
 		// Muestro los monstruos
 		System.out.println(m1.toString());
