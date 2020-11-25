@@ -12,10 +12,10 @@ public class SpaceInvaders {
 	 */
 	public static void main(String[] args) {
 		// Voy a crear un monstruo con un constructor que asigna propiedades
-		Monster m1 = new Monster(50, 60, "monsterImg01.png", "m1", 75);
+		Monster m1 = new Monster(50, 60, Monster.IMAGEN_BICHO_0, "m1", 75);
 		
 		// Creo un nuevo monstruo
-		Monster m2 = new Monster(100, 120, "monsterImg02.png", "m2", 10);
+		Monster m2 = new Monster(100, 120, Monster.IMAGEN_BICHO_1, "m2", 10);
 		m2.setNombre("Nuevo Monstruo");
 		
 		// Muestro los monstruos

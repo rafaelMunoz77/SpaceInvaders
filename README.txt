@@ -22,3 +22,9 @@ v.03 - Constructores y visibilidad
 v.04 - This, getters y setters
 - Aplicación de "this" en el constructor de Monster
 - Creación de métodos setters y getters de Monters
+
+v.05 - Variables estáticas
+- Ejemplo de variables estáticas para nombres de las imágenes del monstruo.
+
+
+
