@@ -19,6 +19,7 @@ public class SpaceInvaders {
 		m1.y = 62;
 		m1.img = "monsterImg01.png";
 		m1.nombre = "m1";
+		m1.probabilidadDisparo = 75;
 		
 		// Creo un nuevo monstruo
 		Monster m2 = new Monster();
@@ -28,10 +29,18 @@ public class SpaceInvaders {
 		m2.y = 120;
 		m2.img = "monsterImg02.png";
 		m2.nombre = "m2";
+		m2.probabilidadDisparo = 10;
 		
 		// Muestro los monstruos
 		System.out.println("m1: nombre: " + m1.nombre + " x: " + m1.x + " y: " + m1.y + " img: " + m1.img);
 		System.out.println("m2: nombre: " + m2.nombre + " x: " + m2.x + " y: " + m2.y + " img: " + m2.img);
+		
+		// Bucle infinito que hace que los monstruos disparen eternamente
+		while (true) {
+			m1.dispara();
+			m2.dispara();
+		}
+		
 	}
 
 }
