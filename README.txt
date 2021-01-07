@@ -34,4 +34,5 @@ v.07 - Herencia, subclases, superclases y "super()"
 - Relación de herencia con una nueva clase: Actor
 - Explicación del significado de super
 
-
+v.08 - La ventana
+- Se crea un objeto de tipo JFrame, que se traduce en una ventana visible con la que el usuario puede interactuar

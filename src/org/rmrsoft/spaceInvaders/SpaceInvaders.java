@@ -1,5 +1,7 @@
 package org.rmrsoft.spaceInvaders;
 
+import javax.swing.JFrame;
+
 /**
  * Clase principal, que crea los monstruos
  *
@@ -25,6 +27,11 @@ public class SpaceInvaders {
 		//Construyo un player para este juego
 		Player jugador = new Player(10, 20, Player.IMAGEN_PLAYER);
 		System.out.println(jugador.toString()); // Muestro datos del objeto Player
+		
+		// Creo y muestro una ventana de 800x600 px
+		JFrame ventana = new JFrame("Space Invaders");
+		ventana.setBounds(0, 0, 800, 600);
+		ventana.setVisible(true);
 	}
 
 }
