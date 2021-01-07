@@ -36,3 +36,8 @@ v.07 - Herencia, subclases, superclases y "super()"
 
 v.08 - La ventana
 - Se crea un objeto de tipo JFrame, que se traduce en una ventana visible con la que el usuario puede interactuar
+
+v.09 - Primeros objetos sobre la ventana
+- Creo diferentes tipos de objetos comunes en las interfaces gráficas y los agrego sobre la ventana.
+- Para agregar objetos a una ventana se debe acceder a su "contentPane", un panel dentro de la ventana
+- Para Colocar objetos sobre un panel, debo asignar una plantilla (un Layout) al panel. Elijo el BorderLayout
