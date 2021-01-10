@@ -54,7 +54,7 @@ public class SpaceInvaders {
 		
 		// Creo un objeto de tipo TextField y lo agrego
 		JTextField jtfDemo = new JTextField("Esto es el javax.swing.JTextField");
-		ventana.getContentPane().add(jtfDemo, BorderLayout.CENTER);
+		ventana.getContentPane().add(jtfDemo, BorderLayout.WEST);
 		
 		// Creo y agrego un botón de acción
 		JButton jbtDemo = new JButton("Esto es el javax.swing.JButton");
@@ -68,7 +68,7 @@ public class SpaceInvaders {
 		Canvas canvas = new Canvas();
 		canvas.setBackground(Color.CYAN);
 		canvas.setSize(new Dimension(100, 100));
-		ventana.getContentPane().add(canvas, BorderLayout.WEST);
+		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
 		
 		// Creo y agrego un objeto de opciones desplegables. Se basa en un array de Strings.
 		String valoresComboBox[] = new String[] {"Opción 1", "Opción 2", "Opción 3"};		
