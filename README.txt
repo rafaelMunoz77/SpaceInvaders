@@ -41,3 +41,5 @@ v.09 - Primeros objetos sobre la ventana
 - Creo diferentes tipos de objetos comunes en las interfaces gráficas y los agrego sobre la ventana.
 - Para agregar objetos a una ventana se debe acceder a su "contentPane", un panel dentro de la ventana
 - Para Colocar objetos sobre un panel, debo asignar una plantilla (un Layout) al panel. Elijo el BorderLayout
+
+v.10 - Creación de un Canvas propio, que permite sobrescribir el méotodo paint() para pintar aquello que nosotros decidamos

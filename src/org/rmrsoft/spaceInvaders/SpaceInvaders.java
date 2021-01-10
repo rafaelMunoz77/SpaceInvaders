@@ -52,29 +52,10 @@ public class SpaceInvaders {
 		// Para colocar objetos sobre la ventana debo asignarle un "layout" (plantilla) al panel principal de la ventana
 		ventana.getContentPane().setLayout(new BorderLayout());
 		
-		// Creo un objeto de tipo TextField y lo agrego
-		JTextField jtfDemo = new JTextField("Esto es el javax.swing.JTextField");
-		ventana.getContentPane().add(jtfDemo, BorderLayout.WEST);
-		
-		// Creo y agrego un botón de acción
-		JButton jbtDemo = new JButton("Esto es el javax.swing.JButton");
-		ventana.getContentPane().add(jbtDemo, BorderLayout.SOUTH);
-		
-		// Creo y agrego un objeto de tipo "check"
-		JCheckBox jcheckDemo = new JCheckBox("Esto es el javax.swing.JCheckBox");
-		ventana.getContentPane().add(jcheckDemo, BorderLayout.NORTH);
-		
 		// Creo y agrego un canvas, es un objeto que permitirá dibujar sobre él
-		Canvas canvas = new Canvas();
-		canvas.setBackground(Color.CYAN);
-		canvas.setSize(new Dimension(100, 100));
+		MiCanvas canvas = new MiCanvas();
+		canvas.setBackground(Color.WHITE);
 		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
-		
-		// Creo y agrego un objeto de opciones desplegables. Se basa en un array de Strings.
-		String valoresComboBox[] = new String[] {"Opción 1", "Opción 2", "Opción 3"};		
-		JComboBox<String> jcbDemo = new JComboBox<String>(valoresComboBox);
-		ventana.getContentPane().add(jcbDemo, BorderLayout.EAST);
-		
 		// Hago que la ventana sea visible
 		ventana.setVisible(true);
 		
