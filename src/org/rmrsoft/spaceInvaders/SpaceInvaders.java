@@ -1,16 +1,11 @@
 package org.rmrsoft.spaceInvaders;
 
 import java.awt.BorderLayout;
-import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
 
 /**
  * Clase principal, que crea los monstruos
@@ -23,29 +18,6 @@ public class SpaceInvaders {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Voy a crear un monstruo con un constructor que asigna propiedades
-		Monster m1 = new Monster(50, 60, Monster.IMAGEN_BICHO_0, "m1", 75);
-		
-		// Creo un nuevo monstruo
-		Monster m2 = new Monster(100, 120, Monster.IMAGEN_BICHO_1, "m2", 10);
-		m2.setNombre("Nuevo Monstruo");
-		
-		// Muestro los monstruos
-		System.out.println(m1.toString());
-		System.out.println(m2.toString());
-		
-		//Construyo un player para este juego
-		Player jugador = new Player(10, 20, Player.IMAGEN_PLAYER);
-		System.out.println(jugador.toString()); // Muestro datos del objeto Player
-		
-		// Creo y muestro una ventana
-		creaYMuestraVentana();
-	}
-	
-	/**
-	 * Crea una ventana, le agrega algunos componentes de prueba y la muestra
-	 */
-	private static void creaYMuestraVentana() {
 		JFrame ventana = new JFrame("Space Invaders");
 		ventana.setBounds(0, 0, 800, 600);
 		
@@ -53,12 +25,43 @@ public class SpaceInvaders {
 		ventana.getContentPane().setLayout(new BorderLayout());
 		
 		// Creo y agrego un canvas, es un objeto que permitirá dibujar sobre él
-		MiCanvas canvas = new MiCanvas();
-		canvas.setBackground(Color.WHITE);
+		MiCanvas canvas = new MiCanvas(creaActores());
 		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
 		// Hago que la ventana sea visible
 		ventana.setVisible(true);
 		
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	private static List<Actor> creaActores () {
+		List<Actor> actores = new ArrayList<Actor>();
+		
+		//Construyo un player para este juego y lo agrego a la lista
+		Player jugador = new Player(300, 300, Player.IMAGEN_PLAYER);
+		actores.add(jugador);
+		
+		// Creo los Monstruos del juego
+		for (int i = 0; i < 10; i++) {
+			int xAleatoria = numAleatorio(10, 500);
+			int yAleatoria = numAleatorio(10, 200);
+			Monster m = new Monster(xAleatoria, yAleatoria, Monster.IMAGEN_BICHO_0, "m", 75);
+			actores.add(m);
+		}
+		
+		// Devuelvo la lista con todos los actores del juego
+		return actores;
+	}
 
+	/**
+	 * Obtención de un número aleatorio en unos límites
+	 * @param minimo
+	 * @param maximo
+	 * @return
+	 */
+	private static int numAleatorio (int minimo, int maximo) {
+		return (int) Math.round(Math.random() * (maximo - minimo) + minimo);
+	}
 }

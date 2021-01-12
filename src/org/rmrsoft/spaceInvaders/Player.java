@@ -1,5 +1,8 @@
 package org.rmrsoft.spaceInvaders;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 /**
  * Clase que representa un player en el juego
  *
@@ -32,7 +35,15 @@ public class Player extends Actor {
 		return "Player [getX()=" + getX() + ", getY()=" + getY() + ", getImg()=" + getImg() + "]";
 	}
 
-	
+	/**
+	 * Utilizado para pintar un player, según sus coordenadas de x e y
+	 */
+	@Override
+	public void paint(Graphics g) {
+		g.setColor(Color.RED);
+		g.fillOval(this.x, this.y, this.ancho, this.alto);
+	}
+
 
 	// Getters y Setters
 	
