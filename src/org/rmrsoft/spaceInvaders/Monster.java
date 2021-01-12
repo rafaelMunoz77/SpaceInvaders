@@ -1,5 +1,8 @@
 package org.rmrsoft.spaceInvaders;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 /**
  * Esta clase representa las propiedades y acciones de un monstruo del videojuego SpaceInvaders
  */
@@ -99,6 +102,16 @@ public class Monster extends Actor {
 	 */
 	public void setProbabilidadDisparo(int probabilidadDisparo) {
 		this.probabilidadDisparo = probabilidadDisparo;
+	}
+
+	/**
+	 * Utilizado para pintar un monstruo, según sus coordenadas de x e y
+	 */
+	@Override
+	public void paint(Graphics g) {
+		g.setColor(Color.YELLOW);
+		System.out.println("pinto en " + this.x + ", " + this.y);
+		g.fillRect(this.x, this.y, this.ancho, this.alto);
 	}
 
 }
