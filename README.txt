@@ -43,3 +43,9 @@ v.09 - Primeros objetos sobre la ventana
 - Para Colocar objetos sobre un panel, debo asignar una plantilla (un Layout) al panel. Elijo el BorderLayout
 
 v.10 - Creación de un Canvas propio, que permite sobrescribir el méotodo paint() para pintar aquello que nosotros decidamos
+
+v.11 - Clases abstractas
+- Se ha convertido la clase Actor en abstracta, al incluir un método abstracto para que cada actor se pinte
+- Se ha implementado el método abstracto en el monstruo y en el player
+- La clase SpaceInvaders crea una lista de actores (player y monstruos) y se la pasa al Canvas para que este la pinte, aprovechando
+	el método abstracto.
