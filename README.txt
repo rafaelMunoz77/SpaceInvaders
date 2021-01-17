@@ -49,3 +49,9 @@ v.11 - Clases abstractas
 - Se ha implementado el método abstracto en el monstruo y en el player
 - La clase SpaceInvaders crea una lista de actores (player y monstruos) y se la pasa al Canvas para que este la pinte, aprovechando
 	el método abstracto.
+	
+v.12 - Redibujamos la escena continuamente
+- Anulamos los eventos de redibujado del objeto canvas.
+- Calculo varios valores necesarios para que el juego se actualice 60 veces por segundo (FPS), en la clase SpaceInvaders
+- La clase Actor incorpora un nuevo método abstracto para que cada actor pueda realizar cambios en su estado, para cada frame
+- Ahora los monstruos se mueven por la pantalla, actualizando su situación en cada FPS.

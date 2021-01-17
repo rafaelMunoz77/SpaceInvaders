@@ -10,6 +10,8 @@ public class Monster extends Actor {
 	// Propiedades privadas de cada monstruo
 	private String nombre; // Nombre que recibe el monstruo
 	private int probabilidadDisparo; // Probabilidad de que ser realice un disparo
+	private int velocidadX = -5;
+	private int velocidadY = -5;
 	
 	//Propiedades estáticas de esta clase
 	public static String IMAGEN_BICHO_0 = "bicho0.gif";
@@ -110,8 +112,25 @@ public class Monster extends Actor {
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(Color.YELLOW);
-		System.out.println("pinto en " + this.x + ", " + this.y);
 		g.fillRect(this.x, this.y, this.ancho, this.alto);
+	}
+
+	@Override
+	public void actua() {
+		// El monstruo se mueve de manera horizontal, en cada FPS
+		this.x += this.velocidadX;
+		// Si el monstruo abandona la escena por la izquierda o la derecha, rebota
+		if (this.x < 0 || this.x > 800) {
+			this.velocidadX = -this.velocidadX;
+		}
+		
+		// Copiamos el esquema anterior para el movimiento vertical
+		this.y += this.velocidadY;
+		// Si el monstruo abandona la escena por la izquierda o la derecha, rebota
+		if (this.y < 0 || this.y > 600) {
+			this.velocidadY = -this.velocidadY;
+		}
+		
 	}
 
 }
