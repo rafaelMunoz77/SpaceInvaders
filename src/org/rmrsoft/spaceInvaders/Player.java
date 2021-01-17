@@ -44,6 +44,11 @@ public class Player extends Actor {
 		g.fillOval(this.x, this.y, this.ancho, this.alto);
 	}
 
+	@Override
+	public void actua() {
+	
+	}
+
 
 	// Getters y Setters
 	

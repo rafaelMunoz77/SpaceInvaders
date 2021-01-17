@@ -37,9 +37,21 @@ v.07 - Herencia, subclases, superclases y "super()"
 v.08 - La ventana
 - Se crea un objeto de tipo JFrame, que se traduce en una ventana visible con la que el usuario puede interactuar
 
-v.09 - Primeros objetos sobre la ventana
+v.09 - Primeros objetos sobre la ventana 
 - Creo diferentes tipos de objetos comunes en las interfaces gráficas y los agrego sobre la ventana.
 - Para agregar objetos a una ventana se debe acceder a su "contentPane", un panel dentro de la ventana
 - Para Colocar objetos sobre un panel, debo asignar una plantilla (un Layout) al panel. Elijo el BorderLayout
 
 v.10 - Creación de un Canvas propio, que permite sobrescribir el méotodo paint() para pintar aquello que nosotros decidamos
+
+v.11 - Clases abstractas
+- Se ha convertido la clase Actor en abstracta, al incluir un método abstracto para que cada actor se pinte
+- Se ha implementado el método abstracto en el monstruo y en el player
+- La clase SpaceInvaders crea una lista de actores (player y monstruos) y se la pasa al Canvas para que este la pinte, aprovechando
+	el método abstracto.
+	
+v.12 - Redibujamos la escena continuamente
+- Anulamos los eventos de redibujado del objeto canvas.
+- Calculo varios valores necesarios para que el juego se actualice 60 veces por segundo (FPS), en la clase SpaceInvaders
+- La clase Actor incorpora un nuevo método abstracto para que cada actor pueda realizar cambios en su estado, para cada frame
+- Ahora los monstruos se mueven por la pantalla, actualizando su situación en cada FPS.

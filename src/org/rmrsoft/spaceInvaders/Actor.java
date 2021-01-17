@@ -36,6 +36,10 @@ public abstract class Actor {
 	 * @param g
 	 */
 	public abstract void paint(Graphics g); 
+	/**
+	 * Método que permite que cada actor realice las acciones que necesite en la creación de cada Frame
+	 */
+	public abstract void actua ();
 
 	/**
 	 * @return the x
