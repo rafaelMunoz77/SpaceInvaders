@@ -2,11 +2,14 @@ package org.rmrsoft.spaceInvaders;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * Clase principal, que crea los monstruos
@@ -15,30 +18,69 @@ import javax.swing.JFrame;
 public class SpaceInvaders {
 
 	private static int FPS = 60;
+	private static JFrame ventana = null;
+	private static List<Actor> actores = new ArrayList<Actor>();
+	private static MiCanvas canvas = null;
 	
 	/**
 	 * Main
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		JFrame ventana = new JFrame("Space Invaders");
+		ventana = new JFrame("Space Invaders");
 		ventana.setBounds(0, 0, 800, 600);
 		
 		// Para colocar objetos sobre la ventana debo asignarle un "layout" (plantilla) al panel principal de la ventana
 		ventana.getContentPane().setLayout(new BorderLayout());
 		
 		// Creo una lista de actores que intervendrá en el juego.
-		List<Actor> actores = creaActores();
+		actores = creaActores();
 		
 		// Creo y agrego un canvas, es un objeto que permitirá dibujar sobre él
-		MiCanvas canvas = new MiCanvas(actores);
+		canvas = new MiCanvas(actores);
 		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
 		// Consigo que la ventana no se redibuje por los eventos de Windows
 		ventana.setIgnoreRepaint(true);
 		// Hago que la ventana sea visible
 		ventana.setVisible(true);
 		
+		// Control del evento de cierre de ventana
+		ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		ventana.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				cerrarAplicacion();
+			}
+		});
+		
 		// Comienzo un bucle, que consistirá en el juego completo.
+		juego();
+	}
+	
+	
+	
+	
+	/**
+	 * Al cerrar la aplicación preguntaremos al usuario si está seguro de que desea salir.
+	 */
+	private static void cerrarAplicacion() {
+		String [] opciones ={"Aceptar","Cancelar"};
+		int eleccion = JOptionPane.showOptionDialog(ventana,"¿Desea cerrar la aplicación?","Salir de la aplicación",
+		JOptionPane.YES_NO_OPTION,
+		JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+		if (eleccion == JOptionPane.YES_OPTION) {
+			System.exit(0);
+		}
+	}
+	
+	
+	
+
+	
+	/**
+	 * Bucle del juego principal
+	 */
+	public static void juego () {
 		int millisPorCadaFrame = 1000 / FPS;
 		do {
 			// Redibujo la escena tantas veces por segundo como indique la variable FPS
@@ -65,8 +107,8 @@ public class SpaceInvaders {
 				e.printStackTrace();
 			}
 		} while (true);
-		
 	}
+	
 	
 	/**
 	 * 
