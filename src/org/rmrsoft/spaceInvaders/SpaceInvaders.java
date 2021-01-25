@@ -18,15 +18,31 @@ import javax.swing.JOptionPane;
 public class SpaceInvaders {
 
 	private static int FPS = 60;
-	private static JFrame ventana = null;
-	private static List<Actor> actores = new ArrayList<Actor>();
-	private static MiCanvas canvas = null;
+	private JFrame ventana = null;
+	private List<Actor> actores = new ArrayList<Actor>();
+	private MiCanvas canvas = null;
+	
+	// Para utilizar un patrón singleton necesitamos la siguiente propiedad estática
+	private static SpaceInvaders instance = null;
 	
 	/**
-	 * Main
-	 * @param args
+	 * Este método representa la principal funcionalidad de un patrón Singleton.
+	 * Devuelve la única instancia que puede existir del esta clase. Si no se ha 
+	 * inicializado, en la primera llamada a este método se realiza dicha 
+	 * inicialización.
 	 */
-	public static void main(String[] args) {
+	public static SpaceInvaders getInstance () {
+		if (instance == null) { // Si no está inicializada, se inicializa
+			instance = new SpaceInvaders();
+		}
+		return instance;
+	}
+	
+	
+	/**
+	 * Constructor
+	 */
+	public SpaceInvaders () {
 		ventana = new JFrame("Space Invaders");
 		ventana.setBounds(0, 0, 800, 600);
 		
@@ -53,8 +69,15 @@ public class SpaceInvaders {
 			}
 		});
 		
+	}
+	
+	/**
+	 * Main
+	 * @param args
+	 */
+	public static void main(String[] args) {
 		// Comienzo un bucle, que consistirá en el juego completo.
-		juego();
+		SpaceInvaders.getInstance().juego();
 	}
 	
 	
@@ -63,7 +86,7 @@ public class SpaceInvaders {
 	/**
 	 * Al cerrar la aplicación preguntaremos al usuario si está seguro de que desea salir.
 	 */
-	private static void cerrarAplicacion() {
+	private void cerrarAplicacion() {
 		String [] opciones ={"Aceptar","Cancelar"};
 		int eleccion = JOptionPane.showOptionDialog(ventana,"¿Desea cerrar la aplicación?","Salir de la aplicación",
 		JOptionPane.YES_NO_OPTION,
@@ -80,7 +103,7 @@ public class SpaceInvaders {
 	/**
 	 * Bucle del juego principal
 	 */
-	public static void juego () {
+	public void juego () {
 		int millisPorCadaFrame = 1000 / FPS;
 		do {
 			// Redibujo la escena tantas veces por segundo como indique la variable FPS
@@ -114,7 +137,7 @@ public class SpaceInvaders {
 	 * 
 	 * @return
 	 */
-	private static List<Actor> creaActores () {
+	private List<Actor> creaActores () {
 		List<Actor> actores = new ArrayList<Actor>();
 		
 		//Construyo un player para este juego y lo agrego a la lista

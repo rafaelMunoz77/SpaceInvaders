@@ -55,3 +55,10 @@ v.12 - Redibujamos la escena continuamente
 - Calculo varios valores necesarios para que el juego se actualice 60 veces por segundo (FPS), en la clase SpaceInvaders
 - La clase Actor incorpora un nuevo método abstracto para que cada actor pueda realizar cambios en su estado, para cada frame
 - Ahora los monstruos se mueven por la pantalla, actualizando su situación en cada FPS.
+
+v.13 - Controlando el cierre de la ventana
+- Se añade lógica de computación para observar el evento de cierre de la ventana. En ese 
+momento preguntaremos al usuario para que confirme la acción. Si la confirma cerramos la ventana
+
+v.14 - Convertimos la clase SpaceInvaders a un Singleton.
+
