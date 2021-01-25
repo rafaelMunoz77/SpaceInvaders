@@ -62,3 +62,5 @@ momento preguntaremos al usuario para que confirme la acción. Si la confirma ce
 
 v.14 - Convertimos la clase SpaceInvaders a un Singleton.
 
+v.15 - Aprovechamos el Singleton para conseguir que los monstruos reboten correctamente, al  tener
+estos acceso a las medidas reales que ocupa el Canvas.
