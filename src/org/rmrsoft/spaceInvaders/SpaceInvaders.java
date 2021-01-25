@@ -2,6 +2,8 @@ package org.rmrsoft.spaceInvaders;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -21,6 +23,7 @@ public class SpaceInvaders {
 	private JFrame ventana = null;
 	private List<Actor> actores = new ArrayList<Actor>();
 	private MiCanvas canvas = null;
+	Player jugador = null;
 	
 	// Para utilizar un patrón singleton necesitamos la siguiente propiedad estática
 	private static SpaceInvaders instance = null;
@@ -54,6 +57,15 @@ public class SpaceInvaders {
 		
 		// Creo y agrego un canvas, es un objeto que permitirá dibujar sobre él
 		canvas = new MiCanvas(actores);
+		// Envío los eventos de movimientos de ratón al jugador
+		canvas.addMouseMotionListener(new MouseAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				super.mouseMoved(e);
+				jugador.mover(e.getX(), e.getY());
+			}			
+		});
+		
 		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
 		// Consigo que la ventana no se redibuje por los eventos de Windows
 		ventana.setIgnoreRepaint(true);
@@ -141,7 +153,7 @@ public class SpaceInvaders {
 		List<Actor> actores = new ArrayList<Actor>();
 		
 		//Construyo un player para este juego y lo agrego a la lista
-		Player jugador = new Player(300, 300, Player.IMAGEN_PLAYER);
+		jugador = new Player(300, 300, Player.IMAGEN_PLAYER);
 		actores.add(jugador);
 		
 		// Creo los Monstruos del juego
