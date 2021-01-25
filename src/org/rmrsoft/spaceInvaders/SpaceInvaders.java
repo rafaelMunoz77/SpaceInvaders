@@ -165,4 +165,14 @@ public class SpaceInvaders {
 	private static int numAleatorio (int minimo, int maximo) {
 		return (int) Math.round(Math.random() * (maximo - minimo) + minimo);
 	}
+
+
+	/**
+	 * @return the canvas
+	 */
+	public MiCanvas getCanvas() {
+		return canvas;
+	}
+	
+	
 }
