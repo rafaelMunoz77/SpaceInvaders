@@ -10,8 +10,6 @@ public class Monster extends Actor {
 	// Propiedades privadas de cada monstruo
 	private String nombre; // Nombre que recibe el monstruo
 	private int probabilidadDisparo; // Probabilidad de que ser realice un disparo
-	private int velocidadX = -5;
-	private int velocidadY = -5;
 	
 	//Propiedades estáticas de esta clase
 	public static String IMAGEN_BICHO_0 = "bicho0.gif";
@@ -37,6 +35,8 @@ public class Monster extends Actor {
 		super(x, y, img);
 		this.nombre = nombre;
 		this.probabilidadDisparo = probabilidadDisparo;
+		this.velocidadX = 5;
+		this.velocidadY = 5;
 	}
 	
 	// Acciones de cada monstruo
