@@ -82,8 +82,8 @@ public class SpaceInvaders {
 				jugador.keyReleased(e);
 			}
 		});
-		
-		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
+
+    ventana.getContentPane().add(canvas, BorderLayout.CENTER);
 		// Consigo que la ventana no se redibuje por los eventos de Windows
 		ventana.setIgnoreRepaint(true);
 		// Hago que la ventana sea visible
