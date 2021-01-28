@@ -59,7 +59,7 @@ v.12 - Redibujamos la escena continuamente
 v.13 - Controlando el cierre de la ventana
 - Se añade lógica de computación para observar el evento de cierre de la ventana. En ese 
 momento preguntaremos al usuario para que confirme la acción. Si la confirma cerramos la ventana
-
+  
 v.14 - Convertimos la clase SpaceInvaders a un Singleton.
 
 v.15 - Aprovechamos el Singleton para conseguir que los monstruos reboten correctamente, al  tener
