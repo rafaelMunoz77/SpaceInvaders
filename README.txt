@@ -68,3 +68,6 @@ estos acceso a las medidas reales que ocupa el Canvas.
 v.16 - Redirijo los eventos de ratón desde el Canvas hasta el jugador.
 - Utilizo la sobrescritura del método "mouseMoved()" de un MouseAdapter para controlar el evento
 de que el ratón se mueva sobre el Canvas. Redirijo dicho evento hacia un método en el jugador.
+
+v.17 - Redirijo los eventos de teclado desde el Canvas hasta el jugador.
+- Realizo los mismos pasos de la versión 16 utilizando un KeyListener.

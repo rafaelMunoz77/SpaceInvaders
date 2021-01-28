@@ -2,6 +2,8 @@ package org.rmrsoft.spaceInvaders;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -66,11 +68,30 @@ public class SpaceInvaders {
 			}			
 		});
 		
+		// Desvío los eventos de teclado hasta el jugador
+		canvas.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				super.keyPressed(e);
+				jugador.keyPressed(e);
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				super.keyReleased(e);
+				jugador.keyReleased(e);
+			}
+		});
+		
 		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
 		// Consigo que la ventana no se redibuje por los eventos de Windows
 		ventana.setIgnoreRepaint(true);
 		// Hago que la ventana sea visible
 		ventana.setVisible(true);
+		
+		// Tras mostrar la ventana, consigo que el foco de la ventana vaya al
+		// Canvas, para que pueda escuchar los eventos del teclado
+		canvas.requestFocus();
 		
 		// Control del evento de cierre de ventana
 		ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
