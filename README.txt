@@ -59,7 +59,7 @@ v.12 - Redibujamos la escena continuamente
 v.13 - Controlando el cierre de la ventana
 - Se añade lógica de computación para observar el evento de cierre de la ventana. En ese 
 momento preguntaremos al usuario para que confirme la acción. Si la confirma cerramos la ventana
-
+  
 v.14 - Convertimos la clase SpaceInvaders a un Singleton.
 
 v.15 - Aprovechamos el Singleton para conseguir que los monstruos reboten correctamente, al  tener
@@ -68,3 +68,6 @@ estos acceso a las medidas reales que ocupa el Canvas.
 v.16 - Redirijo los eventos de ratón desde el Canvas hasta el jugador.
 - Utilizo la sobrescritura del método "mouseMoved()" de un MouseAdapter para controlar el evento
 de que el ratón se mueva sobre el Canvas. Redirijo dicho evento hacia un método en el jugador.
+
+v.17 - Redirijo los eventos de teclado desde el Canvas hasta el jugador.
+- Realizo los mismos pasos de la versión 16 utilizando un KeyListener.

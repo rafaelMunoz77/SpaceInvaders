@@ -68,7 +68,7 @@ public class SpaceInvaders {
 			}			
 		});
 		
-		// Envío los eventos de teclado al jugador
+		// Desvío los eventos de teclado hasta el jugador
 		canvas.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -82,13 +82,15 @@ public class SpaceInvaders {
 				jugador.keyReleased(e);
 			}
 		});
-		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
+
+    ventana.getContentPane().add(canvas, BorderLayout.CENTER);
 		// Consigo que la ventana no se redibuje por los eventos de Windows
 		ventana.setIgnoreRepaint(true);
 		// Hago que la ventana sea visible
 		ventana.setVisible(true);
 		
-		// Provoca que el foco de la aplicación se centre en el Canvas
+		// Tras mostrar la ventana, consigo que el foco de la ventana vaya al
+		// Canvas, para que pueda escuchar los eventos del teclado
 		canvas.requestFocus();
 		
 		// Control del evento de cierre de ventana
