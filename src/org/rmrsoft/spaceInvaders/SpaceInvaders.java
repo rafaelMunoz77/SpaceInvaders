@@ -82,8 +82,8 @@ public class SpaceInvaders {
 				jugador.keyReleased(e);
 			}
 		});
-
-    ventana.getContentPane().add(canvas, BorderLayout.CENTER);
+		
+		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
 		// Consigo que la ventana no se redibuje por los eventos de Windows
 		ventana.setIgnoreRepaint(true);
 		// Hago que la ventana sea visible
@@ -144,7 +144,7 @@ public class SpaceInvaders {
 			long millisAntesDeProcesarEscena = new Date().getTime();
 			
 			// Redibujo la escena
-			canvas.repaint();
+			canvas.pintaEscena();
 			
 			// Recorro todos los actores, consiguiendo que cada uno de ellos actúe
 			for (Actor a : actores) {

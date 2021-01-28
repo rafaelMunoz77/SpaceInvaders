@@ -71,3 +71,6 @@ de que el ratón se mueva sobre el Canvas. Redirijo dicho evento hacia un métod
 
 v.17 - Redirijo los eventos de teclado desde el Canvas hasta el jugador.
 - Realizo los mismos pasos de la versión 16 utilizando un KeyListener.
+
+v.18 - Utilizo un doble búffer en la memoria de vídeo, para evitar parpadeos en la imagen
+- Utilizo el objeto "BufferStrategy" que se puede obtener del Canvas.
