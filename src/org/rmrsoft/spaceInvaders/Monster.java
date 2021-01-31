@@ -133,4 +133,18 @@ public class Monster extends Actor {
 		
 	}
 
+	/**
+	 * Este método se disparará cuando un actor colisione con el monstruo
+	 */
+	@Override
+	public void colisionaCon(Actor a) {
+		super.colisionaCon(a);
+		// Si colisionamos con un player o un disparo, eliminamos al monstruo
+		if (a instanceof Player || a instanceof PlayerShoot) {
+			SpaceInvaders.getInstance().eliminaActor(this);
+		}
+	}
+	
+	
+
 }
