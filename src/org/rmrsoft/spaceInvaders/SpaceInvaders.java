@@ -90,11 +90,7 @@ public class SpaceInvaders {
 		ventana.setIgnoreRepaint(true);
 		// Hago que la ventana sea visible
 		ventana.setVisible(true);
-		
-		// Tras mostrar la ventana, consigo que el foco de la ventana vaya al
-		// Canvas, para que pueda escuchar los eventos del teclado
-		canvas.requestFocus();
-		
+				
 		// Control del evento de cierre de ventana
 		ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		ventana.addWindowListener(new WindowAdapter() {
@@ -141,6 +137,13 @@ public class SpaceInvaders {
 	public void juego () {
 		int millisPorCadaFrame = 1000 / FPS;
 		do {
+			// No sé cuando se va a mostar la ventana y hasta entonces no puedo utilizar la instrucción canvas.requestFocus();
+			// Por tanto, en este bucle compruebo constantemente si el canvas tiene el foco y, si no lo tiene, se lo doy
+			if (ventana.getFocusOwner() != null && !ventana.getFocusOwner().equals(canvas)) {
+				canvas.requestFocus();
+			}
+			
+			
 			// Redibujo la escena tantas veces por segundo como indique la variable FPS
 			// Tomo los millis actuales
 			long millisAntesDeProcesarEscena = new Date().getTime();
