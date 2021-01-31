@@ -80,3 +80,7 @@ v.19 - Incorporo la posibilidad de que el player dispare.
 - CUando el player detecta la pulsación de la barra espaciadora, crea el nuevo disparo
 - SpaceInvaders ahora tiene dos nuevas listas, una para incorporar nuevos actores al juego y otra para eliminar actores
 
+v.20 - Canvas pide continuamente tomar el foco de la aplicación
+- Hemos detectado un fallo en la aplicación. A veces la ventana puede tardar un poco más de la cuenta en aparecer y el 
+canvas.requestFocus() puede no funcionar. Hemos puesto un mecanismo en la clase SpaceInvaders para que aseguremos que el canvas
+acaba recibiendo el foco de la app.
