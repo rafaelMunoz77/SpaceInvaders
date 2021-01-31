@@ -84,3 +84,10 @@ v.20 - Canvas pide continuamente tomar el foco de la aplicación
 - Hemos detectado un fallo en la aplicación. A veces la ventana puede tardar un poco más de la cuenta en aparecer y el 
 canvas.requestFocus() puede no funcionar. Hemos puesto un mecanismo en la clase SpaceInvaders para que aseguremos que el canvas
 acaba recibiendo el foco de la app.
+
+v.21 - Detecto colisiones
+- Cada actor ahora tiene un método que permite ser notificado cuando colisiona con otro actor.
+- SpaceInvaders, la clase, ahora detecta con un doble bucle las colisiones entre actores
+- Algunos actores desaparecen al colisionar con otros. El monstruo desaparece al colisionar con el player o el disparo.
+El disparo desaparece al colisionar con un monster.
+

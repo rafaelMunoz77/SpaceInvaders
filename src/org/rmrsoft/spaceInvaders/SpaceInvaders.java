@@ -2,6 +2,7 @@ package org.rmrsoft.spaceInvaders;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 
 /**
  * Clase principal, que crea los monstruos
@@ -156,6 +158,9 @@ public class SpaceInvaders {
 				a.actua();
 			}
 			
+			// Tras hacer que cada actor actúe y antes de agregar y eliminar actores, detecto colisiones
+			detectaColisiones();
+			
 			// Acualizo los actores, incorporando los nuevos y eliminando los que ya no se quieren
 			actualizaActores();
 			
@@ -238,6 +243,35 @@ public class SpaceInvaders {
 			this.actores.remove(a);
 		}
 		this.actoresParaEliminar.clear(); // Limpio la lista de actores a eliminar, ya los he eliminado
+	}
+	
+
+	/**
+	 * Detecta colisiones entre actores e informa a los dos
+	 */
+	private void detectaColisiones() {
+		// Una vez que cada actor ha actuado, intento detectar colisiones entre los actores y notificarlas. Para detectar
+		// estas colisiones, no nos queda más remedio que intentar detectar la colisión de cualquier actor con cualquier otro
+		// sólo con la excepción de no comparar un actor consigo mismo.
+		// La detección de colisiones se va a baser en formar un rectángulo con las medidas que ocupa cada actor en pantalla,
+		// De esa manera, las colisiones se traducirán en intersecciones entre rectángulos.
+		for (Actor actor1 : this.actores) {
+			// Creo un rectángulo para este actor.
+			Rectangle rect1 = new Rectangle(actor1.getX(), actor1.getY(), actor1.getAncho(), actor1.getAlto());
+			// Compruebo un actor con cualquier otro actor
+			for (Actor actor2 : this.actores) {
+				// Evito comparar un actor consigo mismo, ya que eso siempre provocaría una colisión y no tiene sentido
+				if (!actor1.equals(actor2)) {
+					// Formo el rectángulo del actor 2
+					Rectangle rect2 = new Rectangle(actor2.getX(), actor2.getY(), actor2.getAncho(), actor2.getAlto());
+					// Si los dos rectángulos tienen alguna intersección, notifico una colisión en los dos actores
+					if (rect1.intersects(rect2)) {
+						actor1.colisionaCon(actor2); // El actor 1 colisiona con el actor 2
+						actor2.colisionaCon(actor1); // El actor 2 colisiona con el actor 1
+					}
+				}
+			}
+		}
 	}
 	
 	/**
