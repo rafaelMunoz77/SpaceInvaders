@@ -74,3 +74,9 @@ v.17 - Redirijo los eventos de teclado desde el Canvas hasta el jugador.
 
 v.18 - Utilizo un doble búffer en la memoria de vídeo, para evitar parpadeos en la imagen
 - Utilizo el objeto "BufferStrategy" que se puede obtener del Canvas.
+
+v.19 - Incorporo la posibilidad de que el player dispare.
+- Se crea una nueva clase, un Actor, llamado PlayerShoot
+- CUando el player detecta la pulsación de la barra espaciadora, crea el nuevo disparo
+- SpaceInvaders ahora tiene dos nuevas listas, una para incorporar nuevos actores al juego y otra para eliminar actores
+

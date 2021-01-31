@@ -9,13 +9,13 @@ import java.awt.event.KeyEvent;
  *
  */
 public class Player extends Actor {
-	// Propiedades estáticas de esta clase
+	//Propiedades estáticas de esta clase
 	public static String IMAGEN_PLAYER = "nave.gif";
 	// Propiedades que indican si se está produciendo un movimiento en una dirección
 	private boolean abajo = false, arriba = false, izquierda = false, derecha = false;
 	// Velocidad de la nave, expresada en píxeles por cada frame
 	public static int VELOCIDAD = 5;
-
+	
 	/**
 	 * Constructor por defecto "default constructor"
 	 */
@@ -25,15 +25,12 @@ public class Player extends Actor {
 
 	/**
 	 * Constructor que inicializa las propiedades del objeto
-	 * 
 	 * @param x
 	 * @param y
 	 * @param img
 	 */
 	public Player(int x, int y, String img) {
 		super(x, y, img);
-		this.velocidadX = 0;
-		this.velocidadY = 0;
 	}
 
 	/**
@@ -65,9 +62,8 @@ public class Player extends Actor {
 	}
 
 	/**
-	 * Mediante la llamada a este método, podemos cambiar la posición del jugador a
-	 * unas nuevas coordenadas
-	 * 
+	 * Mediante la llamada a este método, podemos cambiar la posición del jugador a unas
+	 * nuevas coordenadas
 	 * @param x
 	 * @param y
 	 */
@@ -112,6 +108,8 @@ public class Player extends Actor {
 			izquierda = true; break;
 		case KeyEvent.VK_RIGHT:
 			derecha = true; break;
+		case KeyEvent.VK_SPACE:
+			disparo();
 		}
 	}
 	
@@ -131,4 +129,14 @@ public class Player extends Actor {
 			derecha = false; break;
 		}
 	}
-
+	
+	/**
+	 * Con este método se crea un disparo del player
+	 */
+	private void disparo () {
+		int xDisparo = this.x + this.ancho/2 - PlayerShoot.ANCHO/2;
+		PlayerShoot disparo = new PlayerShoot(xDisparo, this.y, "disparo.gif"); // Creo el nuevo actor
+		// Incorporo el nuevo actor al juego
+		SpaceInvaders.getInstance().incorporaNuevoActor(disparo);
+	}
+}

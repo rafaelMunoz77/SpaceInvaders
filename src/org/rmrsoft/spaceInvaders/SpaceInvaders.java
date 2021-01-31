@@ -26,6 +26,8 @@ public class SpaceInvaders {
 	private List<Actor> actores = new ArrayList<Actor>();
 	private MiCanvas canvas = null;
 	Player jugador = null;
+	private List<Actor> actoresParaIncorporar = new ArrayList<Actor>();
+	private List<Actor> actoresParaEliminar = new ArrayList<Actor>();
 	
 	// Para utilizar un patrón singleton necesitamos la siguiente propiedad estática
 	private static SpaceInvaders instance = null;
@@ -151,6 +153,9 @@ public class SpaceInvaders {
 				a.actua();
 			}
 			
+			// Acualizo los actores, incorporando los nuevos y eliminando los que ya no se quieren
+			actualizaActores();
+			
 			// Calculo los millis que debemos parar el proceso, generando 60 FPS.
 			long millisDespuesDeProcesarEscena = new Date().getTime();
 			int millisDeProcesamientoDeEscena = (int) (millisDespuesDeProcesarEscena - millisAntesDeProcesarEscena);
@@ -199,7 +204,39 @@ public class SpaceInvaders {
 		return (int) Math.round(Math.random() * (maximo - minimo) + minimo);
 	}
 
+	/**
+	 * Método llamado para incorporar nuevos actores
+	 * @param a
+	 */
+	public void incorporaNuevoActor (Actor a) {
+		this.actoresParaIncorporar.add(a);
+	}
 
+	/**
+	 * Método llamado para eliminar actores del juego
+	 * @param a
+	 */
+	public void eliminaActor (Actor a) {
+		this.actoresParaEliminar.add(a);
+	}
+	
+	/**
+	 * Incorpora los actores nuevos al juego y elimina los que corresponden
+	 */
+	private void actualizaActores () {
+		// Incorporo los nuevos actores
+		for (Actor a : this.actoresParaIncorporar) {
+			this.actores.add(a);
+		}
+		this.actoresParaIncorporar.clear(); // Limpio la lista de actores a incorporar, ya están incorporados
+		
+		// Elimino los actores que se deben eliminar
+		for (Actor a : this.actoresParaEliminar) {
+			this.actores.remove(a);
+		}
+		this.actoresParaEliminar.clear(); // Limpio la lista de actores a eliminar, ya los he eliminado
+	}
+	
 	/**
 	 * @return the canvas
 	 */
