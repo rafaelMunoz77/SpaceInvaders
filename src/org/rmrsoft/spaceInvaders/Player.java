@@ -29,7 +29,7 @@ public class Player extends Actor {
 	 * @param img
 	 */
 	public Player(int x, int y) {
-		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_PLAYER));
+		super(x, y, ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_PLAYER));
 	}
 
 	/**
@@ -129,5 +129,7 @@ public class Player extends Actor {
 		PlayerShoot disparo = new PlayerShoot(xDisparo, this.y); // Creo el nuevo actor
 		// Incorporo el nuevo actor al juego
 		SpaceInvaders.getInstance().incorporaNuevoActor(disparo);
+		
+		ResourcesCache.getInstance().playSonido("missile.wav");
 	}
 }

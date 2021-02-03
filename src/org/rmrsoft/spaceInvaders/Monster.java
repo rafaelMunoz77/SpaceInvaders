@@ -27,7 +27,7 @@ public class Monster extends Actor {
 	 * @param probabilidadDisparo
 	 */
 	public Monster(int x, int y, int probabilidadDisparo) {
-		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_BICHO));
+		super(x, y, ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_BICHO));
 		this.probabilidadDisparo = probabilidadDisparo;
 		this.velocidadX = 4;
 		this.velocidadY = 4;
@@ -122,6 +122,7 @@ public class Monster extends Actor {
 		// Si colisionamos con un player o un disparo, eliminamos al monstruo
 		if (a instanceof Player || a instanceof PlayerShoot) {
 			SpaceInvaders.getInstance().eliminaActor(this);
+			ResourcesCache.getInstance().playSonido("explosion.wav");
 		}
 	}
 	

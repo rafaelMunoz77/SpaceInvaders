@@ -99,3 +99,8 @@ clase es un singleton con un método que permite buscar un fichero de imagen en 
 saber el nombre de su imagen.
 - Cuando el constructor del tipo Actor recibe una nueva imagen, llama al método "setImg()", que se encarga de ajustar el ancho
 y el alto del actor.
+
+v.23 - Incorporo el sonido.
+- Aumento la capacidad de la caché de imágenes para incorporar también la posibilidad de que cachee sonidos.
+- Hago que el player emita un sonido al disparar
+- El Monster también emite un sonido al morir
