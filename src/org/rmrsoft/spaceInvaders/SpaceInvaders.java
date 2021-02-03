@@ -109,6 +109,10 @@ public class SpaceInvaders {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		// Realizo la carga de los recursos en memoria
+		ResourcesCache.getInstance().cargarRecursosEnMemoria();
+		
+		
 		// Comienzo un bucle, que consistirá en el juego completo.
 		SpaceInvaders.getInstance().juego();
 	}

@@ -20,7 +20,7 @@ public class PlayerShoot extends Actor {
 	 * @param img
 	 */
 	public PlayerShoot(int x, int y) {
-		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_DISPARO));
+		super(x, y, ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_DISPARO));
 		this.ancho = ANCHO;
 		this.alto = ALTO;
 	}
