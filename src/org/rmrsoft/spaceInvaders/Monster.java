@@ -27,10 +27,11 @@ public class Monster extends Actor {
 	 * @param probabilidadDisparo
 	 */
 	public Monster(int x, int y, int probabilidadDisparo) {
-		super(x, y, ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_BICHO));
+		super(x, y);
 		this.probabilidadDisparo = probabilidadDisparo;
 		this.velocidadX = 4;
 		this.velocidadY = 4;
+		this.setSpriteActual(ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_BICHO));
 	}
 	
 	// Acciones de cada monstruo
@@ -61,14 +62,6 @@ public class Monster extends Actor {
 	}
 	
 
-	/**
-	 * Metodo que devuelve un String con todos los valores de este objeto.
-	 */
-	public String toString() {
-		return "Monster [img=" + img + ", probabilidadDisparo=" + probabilidadDisparo + ", getX()=" + getX()
-				+ ", getY()=" + getY() + ", getImg()=" + getImg() + "]";
-	}
-
 	
 	// Getters y Setters 
 
@@ -86,17 +79,9 @@ public class Monster extends Actor {
 		this.probabilidadDisparo = probabilidadDisparo;
 	}
 
-	/**
-	 * Utilizado para pintar un monstruo, según sus coordenadas de x e y
-	 */
-	@Override
-	public void paint(Graphics g) {
-		g.drawImage(this.img, this.x, this.y, null);
-
-	}
-
 	@Override
 	public void actua() {
+		super.actua();
 		// El monstruo se mueve de manera horizontal, en cada FPS
 		this.x += this.velocidadX;
 		// Si el monstruo abandona la escena por la izquierda o la derecha, rebota
@@ -123,6 +108,7 @@ public class Monster extends Actor {
 		if (a instanceof Player || a instanceof PlayerShoot) {
 			SpaceInvaders.getInstance().eliminaActor(this);
 			ResourcesCache.getInstance().playSonido("explosion.wav");
+			SpaceInvaders.getInstance().incorporaNuevoActor(new Explosion(this.x, this.y));
 		}
 	}
 	
