@@ -3,14 +3,13 @@ package org.rmrsoft.spaceInvaders;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 
 /**
  * Clase que representa un player en el juego
  *
  */
 public class Player extends Actor {
-	//Propiedades estáticas de esta clase
-	public static String IMAGEN_PLAYER = "nave.gif";
 	// Propiedades que indican si se está produciendo un movimiento en una dirección
 	private boolean abajo = false, arriba = false, izquierda = false, derecha = false;
 	// Velocidad de la nave, expresada en píxeles por cada frame
@@ -29,8 +28,8 @@ public class Player extends Actor {
 	 * @param y
 	 * @param img
 	 */
-	public Player(int x, int y, String img) {
-		super(x, y, img);
+	public Player(int x, int y) {
+		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_PLAYER));
 	}
 
 	/**
@@ -40,14 +39,6 @@ public class Player extends Actor {
 		return "Player [getX()=" + getX() + ", getY()=" + getY() + ", getImg()=" + getImg() + "]";
 	}
 
-	/**
-	 * Utilizado para pintar un player, según sus coordenadas de x e y
-	 */
-	@Override
-	public void paint(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillOval(this.x, this.y, this.ancho, this.alto);
-	}
 
 	@Override
 	public void actua() {
@@ -135,7 +126,7 @@ public class Player extends Actor {
 	 */
 	private void disparo () {
 		int xDisparo = this.x + this.ancho/2 - PlayerShoot.ANCHO/2;
-		PlayerShoot disparo = new PlayerShoot(xDisparo, this.y, "disparo.gif"); // Creo el nuevo actor
+		PlayerShoot disparo = new PlayerShoot(xDisparo, this.y); // Creo el nuevo actor
 		// Incorporo el nuevo actor al juego
 		SpaceInvaders.getInstance().incorporaNuevoActor(disparo);
 	}

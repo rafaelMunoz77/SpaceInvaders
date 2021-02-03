@@ -187,14 +187,14 @@ public class SpaceInvaders {
 		List<Actor> actores = new ArrayList<Actor>();
 		
 		//Construyo un player para este juego y lo agrego a la lista
-		jugador = new Player(300, 300, Player.IMAGEN_PLAYER);
+		jugador = new Player(300, 300);
 		actores.add(jugador);
 		
 		// Creo los Monstruos del juego
 		for (int i = 0; i < 10; i++) {
 			int xAleatoria = numAleatorio(10, 500);
 			int yAleatoria = numAleatorio(10, 200);
-			Monster m = new Monster(xAleatoria, yAleatoria, Monster.IMAGEN_BICHO_0, "m", 75);
+			Monster m = new Monster(xAleatoria, yAleatoria, 75);
 			actores.add(m);
 		}
 		

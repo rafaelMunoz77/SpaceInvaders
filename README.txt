@@ -91,3 +91,11 @@ v.21 - Detecto colisiones
 - Algunos actores desaparecen al colisionar con otros. El monstruo desaparece al colisionar con el player o el disparo.
 El disparo desaparece al colisionar con un monster.
 
+v.22 - Incorporo las imágenes
+- Cada actor tiene un campo llamado img, le cambio el tipo de String a BufferedImage.
+- Aparece una nueva clase, llamada ImagesCache, que tiene un HashMap con todas las imágenes que intervienten en el juego. La
+clase es un singleton con un método que permite buscar un fichero de imagen en el disco duro
+- Cambiamos ligeramente los constructores de los subtipos de los actores, para que cada subtipo tenga la responsabilidad de
+saber el nombre de su imagen.
+- Cuando el constructor del tipo Actor recibe una nueva imagen, llama al método "setImg()", que se encarga de ajustar el ancho
+y el alto del actor.
