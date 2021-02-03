@@ -20,9 +20,10 @@ public class PlayerShoot extends Actor {
 	 * @param img
 	 */
 	public PlayerShoot(int x, int y) {
-		super(x, y, ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_DISPARO));
+		super(x, y);
 		this.ancho = ANCHO;
 		this.alto = ALTO;
+		this.setSpriteActual(ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_DISPARO));
 	}
 
 	/**
@@ -30,6 +31,8 @@ public class PlayerShoot extends Actor {
 	 */
 	@Override
 	public void actua() {
+		super.actua();
+		
 		this.y -= VELOCIDAD_PIXELS_POR_FRAME; // El disparo sube en vertical
 		
 		// Si el disparo se pierde por el borde superior, elimino el actor del juego

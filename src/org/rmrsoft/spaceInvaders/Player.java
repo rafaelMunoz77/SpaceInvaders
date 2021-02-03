@@ -29,19 +29,14 @@ public class Player extends Actor {
 	 * @param img
 	 */
 	public Player(int x, int y) {
-		super(x, y, ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_PLAYER));
-	}
-
-	/**
-	 * Obtención de un String con todos los datos de un objeto Player
-	 */
-	public String toString() {
-		return "Player [getX()=" + getX() + ", getY()=" + getY() + ", getImg()=" + getImg() + "]";
+		super(x, y);
+		this.setSpriteActual(ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_PLAYER));
 	}
 
 
 	@Override
 	public void actua() {
+		super.actua();
 		// Compruebo las variables booleanas que determinan el movimiento
 		if (arriba) this.y -= VELOCIDAD;
 		if (abajo) this.y += VELOCIDAD;
