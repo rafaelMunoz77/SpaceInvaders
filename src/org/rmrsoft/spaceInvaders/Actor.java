@@ -1,6 +1,7 @@
 package org.rmrsoft.spaceInvaders;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 /**
  * Clase que representa cualquier actor que interviene en el juego
@@ -10,7 +11,7 @@ public abstract class Actor {
 	// Propiedades protegidas (visibles en la propia clase y en los subtipos) de cada actor
 	protected int x, y; // Coordenadas x e y del actor
 	protected int ancho = 30, alto = 30; // ancho y alto que ocupa el actor en pantalla
-	protected String img; // Imagen del actor
+	protected BufferedImage img; // Imagen del actor
 	protected int velocidadX = 0; // Velocidades en cada eje
 	protected int velocidadY = 0;
 
@@ -26,18 +27,20 @@ public abstract class Actor {
 	 * @param y
 	 * @param img
 	 */
-	public Actor(int x, int y, String img) {
+	public Actor(int x, int y, BufferedImage img) {
 		this.x = x;
 		this.y = y;
-		this.img = img;
+		this.setImg(img);
 	}
 	
 	/**
-	 * Este método abstracto indica que todos los subtipos están obligados a implementarlo. Lo usaremos para pintar cada
-	 * personaje.
+	 * Este método pinta la imagen de cada actor.
 	 * @param g
 	 */
-	public abstract void paint(Graphics g); 
+	public void paint(Graphics g) {
+		g.drawImage(this.img, this.x, this.y, null);
+	}
+	
 	/**
 	 * Método que permite que cada actor realice las acciones que necesite en la creación de cada Frame
 	 */
@@ -84,15 +87,17 @@ public abstract class Actor {
 	/**
 	 * @return the img
 	 */
-	public String getImg() {
+	public BufferedImage getImg() {
 		return img;
 	}
 
 	/**
 	 * @param img the img to set
 	 */
-	public void setImg(String img) {
+	public void setImg(BufferedImage img) {
 		this.img = img;
+		this.ancho = this.img.getWidth();
+		this.alto = this.img.getHeight();
 	}
 
 	public int getAncho() {

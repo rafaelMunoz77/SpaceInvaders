@@ -2,6 +2,7 @@ package org.rmrsoft.spaceInvaders;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 /**
  * Representa un disparo del jugador
@@ -9,7 +10,7 @@ import java.awt.Graphics;
 public class PlayerShoot extends Actor {
 	
 	private static int VELOCIDAD_PIXELS_POR_FRAME = 5;
-	public static int ANCHO = 5;
+	public static int ANCHO = 5;  
 	public static int ALTO = 20;
 
 	/**
@@ -18,19 +19,10 @@ public class PlayerShoot extends Actor {
 	 * @param y
 	 * @param img
 	 */
-	public PlayerShoot(int x, int y, String img) {
-		super(x, y, img);
+	public PlayerShoot(int x, int y) {
+		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_DISPARO));
 		this.ancho = ANCHO;
 		this.alto = ALTO;
-	}
-
-	/**
-	 * 
-	 */
-	@Override
-	public void paint(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillRect(this.x, this.y, this.ancho, this.alto);
 	}
 
 	/**

@@ -2,19 +2,14 @@ package org.rmrsoft.spaceInvaders;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 /**
  * Esta clase representa las propiedades y acciones de un monstruo del videojuego SpaceInvaders
  */
 public class Monster extends Actor {
 	// Propiedades privadas de cada monstruo
-	private String nombre; // Nombre que recibe el monstruo
 	private int probabilidadDisparo; // Probabilidad de que ser realice un disparo
-	
-	//Propiedades estáticas de esta clase
-	public static String IMAGEN_BICHO_0 = "bicho0.gif";
-	public static String IMAGEN_BICHO_1 = "bicho1.gif";
-	public static String IMAGEN_BICHO_2 = "bicho2.gif";
 	
 	/**
 	 * Constructor sin argumentos de entrada
@@ -31,12 +26,11 @@ public class Monster extends Actor {
 	 * @param nombre
 	 * @param probabilidadDisparo
 	 */
-	public Monster(int x, int y, String img, String nombre, int probabilidadDisparo) {
-		super(x, y, img);
-		this.nombre = nombre;
+	public Monster(int x, int y, int probabilidadDisparo) {
+		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_BICHO));
 		this.probabilidadDisparo = probabilidadDisparo;
-		this.velocidadX = 5;
-		this.velocidadY = 5;
+		this.velocidadX = 4;
+		this.velocidadY = 4;
 	}
 	
 	// Acciones de cada monstruo
@@ -49,7 +43,7 @@ public class Monster extends Actor {
 	 */
 	public void dispara() {
 		if (puedoDisparar() == true) {
-			System.out.println(nombre + " Dispara"); // Simulación de un disparo
+			System.out.println("Monstruo Dispara"); // Simulación de un disparo
 		}
 	}
 	
@@ -71,26 +65,12 @@ public class Monster extends Actor {
 	 * Metodo que devuelve un String con todos los valores de este objeto.
 	 */
 	public String toString() {
-		return "Monster [nombre=" + nombre + ", probabilidadDisparo=" + probabilidadDisparo + ", getX()=" + getX()
+		return "Monster [img=" + img + ", probabilidadDisparo=" + probabilidadDisparo + ", getX()=" + getX()
 				+ ", getY()=" + getY() + ", getImg()=" + getImg() + "]";
 	}
 
 	
 	// Getters y Setters 
-	
-	/**
-	 * @return the nombre
-	 */
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * @param nombre the nombre to set
-	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 
 	/**
 	 * @return the probabilidadDisparo
@@ -111,8 +91,8 @@ public class Monster extends Actor {
 	 */
 	@Override
 	public void paint(Graphics g) {
-		g.setColor(Color.YELLOW);
-		g.fillRect(this.x, this.y, this.ancho, this.alto);
+		g.drawImage(this.img, this.x, this.y, null);
+
 	}
 
 	@Override
