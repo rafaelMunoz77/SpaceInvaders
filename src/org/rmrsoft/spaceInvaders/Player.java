@@ -131,4 +131,4 @@ public class Player extends Actor {
 			derecha = false; break;
 		}
 	}
-
+}
